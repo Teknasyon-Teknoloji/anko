@@ -1,6 +1,22 @@
 <project name="Update Dependencies" default="update">
 
-    <property name="constraint.layout.version" value="1.1.2" />
+    <property name="androidx_appcompat_version"         value="1.0.2"/>
+    <property name="androidx_cardview_version"          value="1.0.0"/>
+    <property name="androidx_constraintlayout_version"  value="1.1.3"/>
+    <property name="androidx_core_version"              value="1.0.1"/>
+    <property name="androidx_fragment_version"          value="1.0.0"/>
+    <property name="androidx_gridlayout_version"        value="1.0.0"/>
+    <property name="androidx_media_version"             value="1.0.1"/>
+    <property name="androidx_percentlayout_version"     value="1.0.0"/>
+    <property name="androidx_recyclerview_version"      value="1.0.0"/>
+    <property name="androidx_legacy_version"            value="1.0.0"/>
+    <property name="material_version"                   value="1.0.0"/>
+
+    <property name="download_url_prefix" value="https://dl.google.com/dl/android/maven2"/>
+    <property name="download_androidx_url_prefix" value="https://dl.google.com/dl/android/maven2/androidx"/>
+
+    <property name="support_dir" value="dependencies/support"/>
+    <property name="download_dir" value="dependencies/download"/>
 
     <target name="update">
         <mkdir dir="dependencies/download"/>
@@ -20,11 +36,96 @@
 	    <get src="https://repo1.maven.org/maven2/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3.jar"
              dest="dependencies/ant-contrib.jar" usetimestamp="true"/>
 
-        <get src="https://dl.google.com/dl/android/maven2/com/android/support/constraint/constraint-layout/${constraint.layout.version}/constraint-layout-${constraint.layout.version}.aar"
-             dest="dependencies/download/constraint-layout-${constraint.layout.version}.aar" usetimestamp="true"/>
+        <!--appcompat-->
+        <get src="${download_androidx_url_prefix}/appcompat/appcompat/${androidx_appcompat_version}/appcompat-${androidx_appcompat_version}.aar"
+             dest="${download_dir}/appcompat-${androidx_appcompat_version}.aar" usetimestamp="true"/>
 
-        <copy file="dependencies/download/constraint-layout-${constraint.layout.version}.aar"
-              tofile="dependencies/constraint-layout.aar" />
+        <copy file="${download_dir}/appcompat-${androidx_appcompat_version}.aar"
+              tofile="${support_dir}/appcompat/${androidx_appcompat_version}/appcompat-${androidx_appcompat_version}.aar" />
+
+        <!--cardview-->
+        <get src="${download_androidx_url_prefix}/cardview/cardview/${androidx_cardview_version}/cardview-${androidx_cardview_version}.aar"
+             dest="${download_dir}/cardview-${androidx_cardview_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/cardview-${androidx_cardview_version}.aar"
+              tofile="${support_dir}/cardview/${androidx_cardview_version}/cardview-${androidx_cardview_version}.aar" />
+
+        <!--constraintlayout-->
+        <get src="${download_androidx_url_prefix}/constraintlayout/constraintlayout/${androidx_constraintlayout_version}/constraintlayout-${androidx_constraintlayout_version}.aar"
+             dest="${download_dir}/constraintlayout-${androidx_constraintlayout_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/constraintlayout-${androidx_constraintlayout_version}.aar"
+              tofile="${support_dir}/constraintlayout/${androidx_constraintlayout_version}/constraintlayout-${androidx_constraintlayout_version}.aar" />
+
+        <!--core-->
+        <get src="${download_androidx_url_prefix}/core/core/${androidx_core_version}/core-${androidx_core_version}.aar"
+             dest="${download_dir}/core-${androidx_core_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/core-${androidx_core_version}.aar"
+              tofile="${support_dir}/core/${androidx_core_version}/core-${androidx_core_version}.aar" />
+
+        <!--fragment-->
+        <get src="${download_androidx_url_prefix}/fragment/fragment/${androidx_fragment_version}/fragment-${androidx_fragment_version}.aar"
+             dest="${download_dir}/fragment-${androidx_fragment_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/fragment-${androidx_fragment_version}.aar"
+              tofile="${support_dir}/fragment/${androidx_fragment_version}/fragment-${androidx_fragment_version}.aar" />
+
+        <!--gridlayout-->
+        <get src="${download_androidx_url_prefix}/gridlayout/gridlayout/${androidx_gridlayout_version}/gridlayout-${androidx_gridlayout_version}.aar"
+             dest="${download_dir}/gridlayout-${androidx_gridlayout_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/gridlayout-${androidx_gridlayout_version}.aar"
+              tofile="${support_dir}/gridlayout/${androidx_gridlayout_version}/gridlayout-${androidx_gridlayout_version}.aar" />
+
+        <!--media-->
+        <get src="${download_androidx_url_prefix}/media/media/${androidx_media_version}/media-${androidx_media_version}.aar"
+             dest="${download_dir}/media-${androidx_media_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/media-${androidx_media_version}.aar"
+              tofile="${support_dir}/media/${androidx_media_version}/media-${androidx_media_version}.aar" />
+
+        <!--percentlayout-->
+        <get src="${download_androidx_url_prefix}/percentlayout/percentlayout/${androidx_percentlayout_version}/percentlayout-${androidx_percentlayout_version}.aar"
+             dest="${download_dir}/percentlayout-${androidx_percentlayout_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/percentlayout-${androidx_percentlayout_version}.aar"
+              tofile="${support_dir}/percentlayout/${androidx_percentlayout_version}/percentlayout-${androidx_percentlayout_version}.aar" />
+
+        <!--recyclerview-->
+        <get src="${download_androidx_url_prefix}/recyclerview/recyclerview/${androidx_recyclerview_version}/recyclerview-${androidx_recyclerview_version}.aar"
+             dest="${download_dir}/recyclerview-${androidx_recyclerview_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/recyclerview-${androidx_recyclerview_version}.aar"
+              tofile="${support_dir}/recyclerview/${androidx_recyclerview_version}/recyclerview-${androidx_recyclerview_version}.aar" />
+
+        <!--support-core-ui-->
+        <get src="${download_androidx_url_prefix}/legacy/legacy-support-core-ui/${androidx_legacy_version}/legacy-support-core-ui-${androidx_legacy_version}.aar"
+             dest="${download_dir}/legacy-support-core-ui-${androidx_legacy_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/legacy-support-core-ui-${androidx_legacy_version}.aar"
+              tofile="${support_dir}/legacy/${androidx_legacy_version}/legacy-support-core-ui-${androidx_legacy_version}.aar" />
+
+        <!--support-core-utils-->
+        <get src="${download_androidx_url_prefix}/legacy/legacy-support-core-utils/${androidx_legacy_version}/legacy-support-core-utils-${androidx_legacy_version}.aar"
+             dest="${download_dir}/legacy-support-core-utils-${androidx_legacy_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/legacy-support-core-utils-${androidx_legacy_version}.aar"
+              tofile="${support_dir}/legacy/${androidx_legacy_version}/legacy-support-core-utils-${androidx_legacy_version}.aar" />
+
+        <!--support-V4-->
+        <get src="${download_androidx_url_prefix}/legacy/legacy-support-v4/${androidx_legacy_version}/legacy-support-v4-${androidx_legacy_version}.aar"
+             dest="${download_dir}/legacy-support-v4-${androidx_legacy_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/legacy-support-v4-${androidx_legacy_version}.aar"
+              tofile="${support_dir}/legacy/${androidx_legacy_version}/legacy-support-v4-${androidx_legacy_version}.aar" />
+
+        <!--material-->
+        <get src="${download_url_prefix}/com/google/android/material/material/${material_version}/material-${material_version}.aar"
+             dest="${download_dir}/material-${material_version}.aar" usetimestamp="true"/>
+
+        <copy file="${download_dir}/material-${material_version}.aar"
+              tofile="${support_dir}/material/${material_version}/material-${material_version}.aar" />
 
         <ant antfile="update_dependencies_idea.xml" target="update"/>
 

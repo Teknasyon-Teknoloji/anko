@@ -1,21 +1,34 @@
 {
   "templates": {
-    "support": "dependencies/android-sdk/extras/android/m2repository/com/android/support",
+    "support": "dependencies/support",
     "platforms": "dependencies/android-sdk/platforms",
-    "supportVer": "25.1.1"
+    "targetVer": "android-28",
+    "support_platform_value": "%platforms%/%targetVer%/android.jar",
+
+    "androidx_appcompat_version"          : "1.0.2",
+    "androidx_cardview_version"           : "1.0.0",
+    "androidx_constraintlayout_version"   : "1.1.3",
+    "androidx_core_version"               : "1.0.1",
+    "androidx_fragment_version"           : "1.0.0",
+    "androidx_gridlayout_version"         : "1.0.0",
+    "androidx_media_version"              : "1.0.1",
+    "androidx_percentlayout_version"      : "1.0.0",
+    "androidx_recyclerview_version"       : "1.0.0",
+    "androidx_legacy_version"             : "1.0.0",
+    "material_version"                    : "1.0.0"
   },
 
   "artifacts": [
     {
       "name" : "commons",
       "type": "commons",
-      "platform": [ "%platforms%/android-28/android.jar" ],
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
       "target": []
     },
     {
       "name": "sqlite",
       "type": "sqlite",
-      "platform": [ "%platforms%/android-28/android.jar" ],
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
       "target": []
     },
     {
@@ -124,122 +137,143 @@
       "platform": [ "%platforms%/android-28/android.jar" ]
     },
     {
-      "name": "support-v4",
-      "type": "supportV4",
-      "platform": [ "%platforms%/android-27/android.jar" ],
+      "name": "androidx-legacy",
+      "type": "legacy",
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
       "target": [
-        "%support%/support-v4/%supportVer%/support-v4-%supportVer%.aar",
-        "%support%/support-compat/%supportVer%/support-compat-%supportVer%.aar",
-        "%support%/support-media-compat/%supportVer%/support-media-compat-%supportVer%.aar",
-        "%support%/support-core-ui/%supportVer%/support-core-ui-%supportVer%.aar",
-        "%support%/support-core-utils/%supportVer%/support-core-utils-%supportVer%.aar",
-        "%support%/support-fragment/%supportVer%/support-fragment-%supportVer%.aar"
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-v4-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-ui-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-utils-%androidx_legacy_version%.aar"
       ]
     },
     {
-      "name": "appcompat-v7",
-      "type": "toolkit",
-      "platform": [
-        "%platforms%/android-27/android.jar",
-        "%support%/support-v4/%supportVer%/support-v4-%supportVer%.aar",
-        "%support%/support-compat/%supportVer%/support-compat-%supportVer%.aar",
-        "%support%/support-media-compat/%supportVer%/support-media-compat-%supportVer%.aar",
-        "%support%/support-core-ui/%supportVer%/support-core-ui-%supportVer%.aar",
-        "%support%/support-core-utils/%supportVer%/support-core-utils-%supportVer%.aar",
-        "%support%/support-fragment/%supportVer%/support-fragment-%supportVer%.aar"
-      ],
-      "target": [ "%support%/appcompat-v7/%supportVer%/appcompat-v7-%supportVer%.aar" ]
+      "name": "androidx-fragment",
+      "type": "legacy",
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [
+        "%support%/fragment/%androidx_fragment_version%/fragment-%androidx_fragment_version%.aar"
+      ]
     },
     {
-      "name": "appcompat-v7-listeners",
+      "name": "androidx-core",
+      "type": "toolkit",
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [
+        "%support%/core/%androidx_core_version%/core-%androidx_core_version%.aar"
+      ]
+    },
+    {
+      "name": "androidx-media",
+      "type": "toolkit",
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [
+        "%support%/media/%androidx_media_version%/media-%androidx_media_version%.aar"
+      ]
+    },
+    {
+      "name": "androidx-appcompat",
+      "type": "toolkit",
+      "platform": [
+        "%platforms%/%targetVer%/android.jar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-v4-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-ui-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-utils-%androidx_legacy_version%.aar",
+        "%support%/fragment/%androidx_fragment_version%/fragment-%androidx_fragment_version%.aar",
+        "%support%/core/%androidx_core_version%/core-%androidx_core_version%.aar",
+        "%support%/media/%androidx_media_version%/media-%androidx_media_version%.aar"
+      ],
+      "target": [ "%support%/appcompat/%androidx_appcompat_version%/appcompat-%androidx_appcompat_version%.aar" ]
+    },
+    {
+      "name": "androidx-appcompat-listeners",
       "type": "simpleListeners",
       "platform": [
-        "%platforms%/android-27/android.jar",
-        "%support%/support-v4/%supportVer%/support-v4-%supportVer%.aar",
-        "%support%/support-compat/%supportVer%/support-compat-%supportVer%.aar",
-        "%support%/support-media-compat/%supportVer%/support-media-compat-%supportVer%.aar",
-        "%support%/support-core-ui/%supportVer%/support-core-ui-%supportVer%.aar",
-        "%support%/support-core-utils/%supportVer%/support-core-utils-%supportVer%.aar",
-        "%support%/support-fragment/%supportVer%/support-fragment-%supportVer%.aar"
+        "%platforms%/%targetVer%/android.jar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-v4-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-ui-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-utils-%androidx_legacy_version%.aar",
+        "%support%/fragment/%androidx_fragment_version%/fragment-%androidx_fragment_version%.aar",
+        "%support%/core/%androidx_core_version%/core-%androidx_core_version%.aar",
+        "%support%/media/%androidx_media_version%/media-%androidx_media_version%.aar"
       ],
-      "target": [ "%support%/appcompat-v7/%supportVer%/appcompat-v7-%supportVer%.aar" ]
+      "target": [ "%support%/appcompat/%androidx_appcompat_version%/appcompat-%androidx_appcompat_version%.aar" ]
     },
     {
-      "name": "appcompat-v7-coroutines",
+      "name": "androidx-appcompat-coroutines",
       "type": "coroutineListeners",
       "platform": [
-        "%platforms%/android-27/android.jar",
-        "%support%/support-v4/%supportVer%/support-v4-%supportVer%.aar",
-        "%support%/support-compat/%supportVer%/support-compat-%supportVer%.aar",
-        "%support%/support-media-compat/%supportVer%/support-media-compat-%supportVer%.aar",
-        "%support%/support-core-ui/%supportVer%/support-core-ui-%supportVer%.aar",
-        "%support%/support-core-utils/%supportVer%/support-core-utils-%supportVer%.aar",
-        "%support%/support-fragment/%supportVer%/support-fragment-%supportVer%.aar"
+        "%platforms%/%targetVer%/android.jar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-v4-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-ui-%androidx_legacy_version%.aar",
+        "%support%/legacy/%androidx_legacy_version%/legacy-support-core-utils-%androidx_legacy_version%.aar",
+        "%support%/fragment/%androidx_fragment_version%/fragment-%androidx_fragment_version%.aar",
+        "%support%/core/%androidx_core_version%/core-%androidx_core_version%.aar",
+        "%support%/media/%androidx_media_version%/media-%androidx_media_version%.aar"
       ],
-      "target": [ "%support%/appcompat-v7/%supportVer%/appcompat-v7-%supportVer%.aar" ]
+      "target": [ "%support%/appcompat/%androidx_appcompat_version%/appcompat-%androidx_appcompat_version%.aar" ]
     },
     {
-      "name": "cardview-v7",
+      "name": "androidx-cardview",
       "type": "toolkit",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/cardview-v7/%supportVer%/cardview-v7-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/cardview/%androidx_cardview_version%/cardview-%androidx_cardview_version%.aar" ]
     },
     {
-      "name": "design",
+      "name": "material",
       "type": "toolkit",
       "platform": [
-        "%platforms%/android-27/android.jar",
-        "%support%/appcompat-v7/%supportVer%/appcompat-v7-%supportVer%.aar"
+        "%platforms%/%targetVer%/android.jar",
+        "%support%/appcompat/%androidx_appcompat_version%/appcompat-%androidx_appcompat_version%.aar"
       ],
-      "target": [ "%support%/design/%supportVer%/design-%supportVer%.aar" ]
+      "target": [ "%support%/material/%material_version%/material-%material_version%.aar" ]
     },
     {
-      "name": "design-listeners",
+      "name": "material-Listeners",
       "type": "simpleListeners",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/design/%supportVer%/design-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/material/%material_version%/material-%material_version%.aar" ]
     },
     {
-      "name": "design-coroutines",
+      "name": "material-coroutines",
       "type": "coroutineListeners",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/design/%supportVer%/design-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/material/%material_version%/material-%material_version%.aar" ]
     },
     {
-      "name": "gridlayout-v7",
+      "name": "androidx-gridlayout",
       "type": "toolkit",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/gridlayout-v7/%supportVer%/gridlayout-v7-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/gridlayout/%androidx_gridlayout_version%/gridlayout-%androidx_gridlayout_version%.aar" ]
     },
     {
       "name": "percent",
       "type": "toolkit",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/percent/%supportVer%/percent-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/percent/%androidx_percentlayout_version%/percent-%androidx_percentlayout_version%.aar" ]
     },
     {
-      "name": "constraint-layout",
+      "name": "constraintlayout",
       "type": "toolkit",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "dependencies/constraint-layout.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/constraintlayout/%androidx_constraintlayout_version%/constraintlayout-%androidx_constraintlayout_version%.aar" ]
     },
     {
-      "name": "recyclerview-v7",
+      "name": "recyclerview",
       "type": "toolkit",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/recyclerview-v7/%supportVer%/recyclerview-v7-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/recyclerview/%androidx_recyclerview_version%/recyclerview-%androidx_recyclerview_version%.aar" ]
     },
     {
-      "name": "recyclerview-v7-listeners",
+      "name": "recyclerview-listeners",
       "type": "simpleListeners",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/recyclerview-v7/%supportVer%/recyclerview-v7-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/recyclerview/%androidx_recyclerview_version%/recyclerview-%androidx_recyclerview_version%.aar" ]
     },
     {
       "name": "recyclerview-v7-coroutines",
       "type": "coroutineListeners",
-      "platform": [ "%platforms%/android-27/android.jar" ],
-      "target": [ "%support%/recyclerview-v7/%supportVer%/recyclerview-v7-%supportVer%.aar" ]
+      "platform": [ "%platforms%/%targetVer%/android.jar" ],
+      "target": [ "%support%/recyclerview/%androidx_recyclerview_version%/recyclerview-%androidx_recyclerview_version%.aar" ]
     }
   ],
 
@@ -250,18 +284,21 @@
       "android.widget.MediaController",
       "android.provider.ContactsContract.BaseSyncColumns",
       "android.inputmethodservice.KeyboardView",
-      "android.support.v4.widget.CircleImageView",
-      "android.support.v7.internal.widget.*",
-      "android.support.v7.internal.view.menu.*",
-      "android.support.v7.widget.ListViewCompat",
+      "androidx.swiperefreshlayout.widget.CircleImageView",
+      "androidx.appcompat.internal.widget.*",
+      "androidx.appcompat.internal.view.menu.*",
+      "androidx.core.widget.ListViewCompat",
       "android.renderscript.RSSurfaceView",
       "android.renderscript.RenderScriptGL",
       "android.renderscript.RSTextureView",
-      "android.support.v7.widget.DropDownListView",
+      "androidx.appcompat.widget.DropDownListView",
       "android.text.ClipboardManager",
-      "android.support.design.internal.*",
-      "android.support.design.widget.CheckableImageButton",
-      "android.support.constraint.Constraints"
+      "androidx.constraintlayout.widget.Constraints",
+      "com.google.android.material.internal.*",
+      "com.google.android.material.widget.CheckableImageButton"
+
+//      "com.google.android.material.appbar.AppBarLayout",
+//      "com.google.android.material.tabs.TabLayout"
     ]
   }
 }

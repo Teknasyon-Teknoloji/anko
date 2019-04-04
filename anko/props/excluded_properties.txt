@@ -1,4 +1,4 @@
-android.support.v4.view.PagerTabStrip#*
+androidx.viewpager.widget.PagerTabStrip#*
 android.app.MediaRouteButton#*
 android.appwidget.AppWidgetHostView#*
 android.gesture.GestureOverlayView#*
@@ -59,10 +59,10 @@ android.widget.AbsListView#getCheckedItemPositions
 android.widget.AbsListView#getSolidColor
 android.widget.AbsListView#getTextFilter
 android.widget.AbsListView#getVerticalScrollbarWidth
-android.support.v7.widget.AppCompatAutoCompleteTextView#*
-android.support.v7.widget.AppCompatButton#*
-android.support.v7.widget.AppCompatCheckBox#*
-android.support.v7.widget.AppCompatEditText#*
-android.support.v7.widget.AppCompatMultiAutoCompleteTextView#*
-android.support.v7.widget.AppCompatRadioButton#*
-android.support.v7.widget.AppCompatSpinner#*
+androidx.appcompat.widget.AppCompatAutoCompleteTextView#*
+androidx.appcompat.widget.AppCompatButton#*
+androidx.appcompat.widget.AppCompatCheckBox#*
+androidx.appcompat.widget.AppCompatEditText#*
+androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView#*
+androidx.appcompat.widget.AppCompatRadioButton#*
+androidx.appcompat.widget.AppCompatSpinner#*

@@ -2,7 +2,7 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 buildscript {
-    ext.kotlin_version = '1.3.21'
+    ext.kotlin_version = '1.3.40'
     ext.kotlinx_dom_version = '0.0.10'
     ext.kotlinx_coroutines_version = '1.0.0'
 
@@ -13,7 +13,7 @@ buildscript {
 
     ext.material_version = "1.0.0"
 
-    ext.ANKO_VERSION = '0.10.8'
+    ext.ANKO_VERSION = '0.11.1'
     ext.ANKO_VERSION_CODE = 106
 
     ext.COMPILE_SDK_VERSION = 28
@@ -22,12 +22,12 @@ buildscript {
     ext.SUPPORT_ARTIFACT_VERSION = "27.1.1"
     ext.CONSTRAINT_LAYOUT_ARTIFACT_VERSION = "1.1.2"
 
-    ext.PROJECT_URL = 'https://github.com/JetBrains/anko'
-    ext.SCM_URL = 'https://github.com/JetBrains/anko.git'
-    ext.CONNECTION_URL = 'scm:git:https://github.com/JetBrains/anko.git'
-    ext.DEVELOPER_CONNECTION_URL = 'scm:git:https://github.com/JetBrains/anko'
+    ext.PROJECT_URL = 'https://github.com/Teknasyon-Teknoloji/anko'
+    ext.SCM_URL = 'https://github.com/Teknasyon-Teknoloji/anko.git'
+    ext.CONNECTION_URL = 'scm:git:https://github.com/Teknasyon-Teknoloji/anko.git'
+    ext.DEVELOPER_CONNECTION_URL = 'scm:git:https://github.com/Teknasyon-Teknoloji/anko'
 
-    ext.BINTRAY_USER_NAME = 'jetbrains'
+    ext.BINTRAY_USER_NAME = 'kobeumut'
     ext.BINTRAY_PACKAGE_NAME = 'anko'
     ext.BINTRAY_REPO_NAME = 'anko'
 
@@ -41,11 +41,11 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:3.3.2"
+        classpath "com.android.tools.build:gradle:3.4.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
-        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.16"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.18"
     }
 }
 
